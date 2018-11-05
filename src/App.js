@@ -54,6 +54,7 @@ class App extends Component {
 
   calculateFaceLocation = (data) => {
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
+    console.log('clarifaiFace',clarifaiFace);
     const image = document.getElementById('inputImage');
     const width = Number(image.width);
     const height = Number(image.height);
@@ -66,7 +67,7 @@ class App extends Component {
   }
 
   displayFaceBox = (box) => {
-    // console.log(box);
+    console.log(box);
     this.setState({box: box});
   }
 
@@ -75,6 +76,7 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
+    console.log(this.state.input);
     this.setState({imageUrl: this.state.input});
       fetch('https://nameless-basin-99250.herokuapp.com/imageurl', {
         method: 'post',
@@ -85,7 +87,9 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(response => {
+        console.log('response',response);
         if(response) {
+          // http://localhost:3000
           fetch('https://nameless-basin-99250.herokuapp.com/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
@@ -95,9 +99,11 @@ class App extends Component {
           })
           .then(response => response.json())
           .then(count => {
-            return this.setState(Object.assign(this.state.user, { entries: count }))
+            this.setState(Object.assign(this.state.user, { entries: count }))
           })
           .catch(console.log)
+        } else {
+          console.log('cannot get API response');
         }
         this.displayFaceBox(this.calculateFaceLocation(response))
       })
