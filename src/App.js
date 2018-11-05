@@ -7,6 +7,7 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Logo from './components/Logo/Logo';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
+import Footer from './components/Footer/Footer';
 import './App.css';
 
 const particlesOptions = {
@@ -78,7 +79,7 @@ class App extends Component {
   onButtonSubmit = () => {
     console.log(this.state.input);
     this.setState({imageUrl: this.state.input});
-      fetch('https://nameless-basin-99250.herokuapp.com/imageurl', {
+      fetch('http://localhost:3000/imageurl', {
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -90,7 +91,7 @@ class App extends Component {
         console.log('response',response);
         if(response) {
           // http://localhost:3000
-          fetch('https://nameless-basin-99250.herokuapp.com/image', {
+          fetch('http://localhost:3000/image', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -142,6 +143,7 @@ class App extends Component {
               : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
             )
           }
+          <Footer />
       </div>
     );
   }
