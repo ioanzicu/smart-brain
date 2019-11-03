@@ -6,13 +6,13 @@ import {
   DropdownItem
 } from 'reactstrap'
 
-const ProfileIcon = props => {
+const ProfileIcon = ({ onRouteChange }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
   const toggle = () => setDropdownOpen(prevState => !prevState)
 
   return (
-    <div className='pa4 tc'>
+    <div className='pa4 pr6 tc'>
       <Dropdown isOpen={dropdownOpen} toggle={toggle}>
         <DropdownToggle
           tag='span'
@@ -29,8 +29,11 @@ const ProfileIcon = props => {
           style={{
             backgroundColor: 'rgba(255, 255, 255, 0.5)'
           }}>
-          <DropdownItem header>View Profile</DropdownItem>
-          <DropdownItem>Sign Out</DropdownItem>
+          <DropdownItem header>User Profile</DropdownItem>
+          <DropdownItem>View Profile</DropdownItem>
+          <DropdownItem onClick={() => onRouteChange('signout')}>
+            Sign Out
+          </DropdownItem>
         </DropdownMenu>
       </Dropdown>
     </div>

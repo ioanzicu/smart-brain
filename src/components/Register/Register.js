@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { Component } from 'react'
+import './Register.css'
 
-class Register extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: '',
-      name: ''
-    }
+class Register extends Component {
+  state = {
+    email: '',
+    password: '',
+    name: ''
   }
 
   onNameChange = event => {
@@ -53,7 +51,7 @@ class Register extends React.Component {
                   Name
                 </label>
                 <input
-                  className='pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100'
+                  className='pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 hover-black'
                   type='text'
                   name='name'
                   id='name'
@@ -65,7 +63,7 @@ class Register extends React.Component {
                   Email
                 </label>
                 <input
-                  className='pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100'
+                  className='pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 hover-black'
                   type='email'
                   name='email-address'
                   id='email-address'
@@ -77,7 +75,7 @@ class Register extends React.Component {
                   Password
                 </label>
                 <input
-                  className='b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100'
+                  className='b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 hover-black'
                   type='password'
                   name='password'
                   id='password'
