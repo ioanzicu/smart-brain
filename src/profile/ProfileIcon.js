@@ -6,7 +6,7 @@ import {
   DropdownItem
 } from 'reactstrap'
 
-const ProfileIcon = ({ onRouteChange }) => {
+const ProfileIcon = ({ onRouteChange, toggleModal }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
   const toggle = () => setDropdownOpen(prevState => !prevState)
@@ -20,7 +20,7 @@ const ProfileIcon = ({ onRouteChange }) => {
           aria-expanded={dropdownOpen}>
           <img
             src='http://tachyons.io/img/logo.jpg'
-            className='br-100 h3 w3 dib'
+            class='br-100 ba h3 w3 dib'
             alt='avatar'
           />
         </DropdownToggle>
@@ -30,7 +30,7 @@ const ProfileIcon = ({ onRouteChange }) => {
             backgroundColor: 'rgba(255, 255, 255, 0.5)'
           }}>
           <DropdownItem header>User Profile</DropdownItem>
-          <DropdownItem>View Profile</DropdownItem>
+          <DropdownItem onClick={toggleModal}>View Profile</DropdownItem>
           <DropdownItem onClick={() => onRouteChange('signout')}>
             Sign Out
           </DropdownItem>
