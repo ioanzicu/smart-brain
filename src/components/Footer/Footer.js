@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Footer = () => {
-  return (
-    <div className='center ma'>
-      <footer className='footer'>
-        <p>Created with &#10084; by Ioan Zîcu</p>
-      </footer>
-    </div>
-  )
-}
+const Footer = () => (
+  <div className='center mt-4'>
+    <footer className='footer'>
+      <p>
+        Created with <span style={{ color: 'red' }}>&#10084;</span> by Ioan Zîcu
+      </p>
+    </footer>
+  </div>
+)
 
 export default Footer
