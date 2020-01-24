@@ -4,14 +4,16 @@ const Rank = ({ name, entries }) => {
   const [emoji, setEmoji] = useState('');
    
   useEffect(() => {
-    generateEmoji(entries)
-  }, [])
+    generateEmoji(entries);
+    
+    if(emoji != entries) setEmoji(emoji);
+  }, [emoji, entries])
 
 const generateEmoji = entries => {
   fetch(`https://cuw6sgc7p0.execute-api.us-east-1.amazonaws.com/prod/rank?rank=${entries}`)
   .then(response => response.json())
   .then(data => setEmoji(data.input))
-  .catch(console.log)
+  .catch(console.log);
 }
 
   return (
@@ -20,9 +22,9 @@ const generateEmoji = entries => {
         {`${name}, your current entry count is...`}
       </div>
         <div className='white f1'>{entries}</div>
-      <div className='white f3'>
+      {emoji && (<div className='white f3'>
         {`Rank Badge: ${emoji}`}
-        </div>
+        </div>)}
     </div>
   )
 }
