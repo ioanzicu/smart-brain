@@ -20,7 +20,7 @@ const ProfileIcon = ({ onRouteChange, toggleModal }) => {
           aria-expanded={dropdownOpen}>
           <img
             src='http://tachyons.io/img/logo.jpg'
-            class='br-100 ba h3 w3 dib'
+            className='br-100 ba h3 w3 dib'
             alt='avatar'
           />
         </DropdownToggle>

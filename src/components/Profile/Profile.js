@@ -43,7 +43,7 @@ const Profile = ({ isProfileOpen, toggleModal, user, loadUser }) => {
         <main className='pa4 black-80 w-80'>
           <img
             src='http://tachyons.io/img/logo.jpg'
-            class='h3 w3 dib'
+            className='h3 w3 dib'
             alt='avatar'
           />
           <h1>{name}</h1>
