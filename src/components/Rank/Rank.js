@@ -6,7 +6,7 @@ const Rank = ({ name, entries }) => {
   useEffect(() => {
     generateEmoji(entries);
     
-    if(emoji != entries) setEmoji(emoji);
+    if(emoji !== entries) setEmoji(emoji);
   }, [emoji, entries])
 
 const generateEmoji = entries => {
